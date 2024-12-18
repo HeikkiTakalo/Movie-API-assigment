@@ -48,7 +48,7 @@ INSERT INTO Reviewer (name, username, password, birthyear) VALUES
 ('Marge Simpson', 'margesim', 'password321', 1955);
 
 CREATE TABLE Review (
-    review_id INT PRIMARY KEY,
+    review_id SERIAL PRIMARY KEY,
     reviewer_id INT,
     movie_id INT,
     stars INT,

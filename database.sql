@@ -1,9 +1,9 @@
 CREATE TABLE Genre (
     genre_id SERIAL PRIMARY KEY,
-    genreName VARCHAR(255)
+    name VARCHAR(255)
 );
 
-INSERT INTO Genre (genreName) VALUES
+INSERT INTO Genre (name) VALUES
 ('Action'),
 ('Comedy'),
 ('Horror'),

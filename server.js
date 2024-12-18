@@ -6,6 +6,9 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.listen(3210, () => {
+    console.log('Server running in port 3210');
+});
 
 const client = new Client({
   user: process.env.DB_USER,
@@ -41,3 +44,12 @@ app.get('/Movie', async (req, res) => {
     }
   });
 
+app.get('/Reviewer', async (req, res) => {
+    try {
+        const result = await client.query('SELECT * FROM Reviewer');
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error');
+    }
+});

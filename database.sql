@@ -30,7 +30,7 @@ INSERT INTO Movie (movie_name, movie_year, genre_id) VALUES
 ('Gone Girl', 2014, 4),
 ('Blade Runner 2049', 2017, 5),
 ('Dune', 2021, 5),
-('Harry Potter and the Sorcerer\'s Stone', 2001, 6),
+('Harry Potter and the Sorcerers Stone', 2001, 6),
 ('The Chronicles of Narnia: The Lion, the Witch and the Wardrobe', 2005, 6);
 
 CREATE TABLE Reviewer (

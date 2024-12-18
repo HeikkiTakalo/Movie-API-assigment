@@ -75,6 +75,20 @@ app.get('/movie', async (req, res) => {
     }
   });
 
+  app.get('/movie/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await client.query('SELECT * FROM Movie WHERE movie_id = $1', [id]);
+        if (result.rows.length === 0) {
+            return res.status(404).send('Movie not found');
+        }
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error');
+    }
+});
+
   app.post('/movie', async (req, res) => {
     const { movie_name, movie_year, genre_id } = req.body;
   
@@ -177,7 +191,7 @@ app.post('/review', async (req, res) => {
   app.get('/favorites/:username', async (req, res) => {
   const { username } = req.params;
   
-  
+
   const reviewerResult = await client.query('SELECT reviewer_id FROM Reviewer WHERE username = $1', [username]);
   if (reviewerResult.rows.length === 0) {
     return res.status(404).send('User not Found');
